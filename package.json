@@ -1,0 +1,41 @@
+{
+  "name": "aiox-web-dashboard",
+  "version": "1.0.0",
+  "description": "AIOX Web Dashboard - Vercel + Supabase",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint . --ext .ts,.tsx",
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit",
+    "db:push": "npx prisma db push",
+    "db:generate": "npx prisma generate"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.0.0",
+    "@supabase/supabase-js": "^2.98.0",
+    "@supabase/auth-helpers-react": "^0.4.6",
+    "zustand": "^4.5.7",
+    "axios": "^1.7.2",
+    "lucide-react": "^0.575.0",
+    "clsx": "^2.1.1",
+    "date-fns": "^3.0.0",
+    "recharts": "^2.10.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.2",
+    "vite": "^7.3.1",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^9.0.0",
+    "prettier": "^3.3.3",
+    "tailwindcss": "^3.4.19",
+    "autoprefixer": "^10.4.24",
+    "postcss": "^8.5.6",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/node": "^22.0.0"
+  }
+}
