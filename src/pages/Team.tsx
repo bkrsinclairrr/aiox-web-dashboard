@@ -52,7 +52,7 @@ function Team() {
     }
   }
 
-  const handleRemoveMember = async (memberId: string) => {
+  const handleRemoveMember = async (_memberId: string) => {
     if (window.confirm('Tem certeza que deseja remover este membro?')) {
       try {
         // In a real app, this would update Supabase
@@ -64,7 +64,7 @@ function Team() {
     }
   }
 
-  const handleChangeRole = async (memberId: string, newRole: string) => {
+  const handleChangeRole = async (_memberId: string, newRole: string) => {
     try {
       // In a real app, this would update Supabase
       alert(`Role do membro alterado para ${newRole}`)

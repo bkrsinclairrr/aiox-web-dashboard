@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { aiox, AIOXEvent, AIOXAgent } from '../lib/aiox'
-import { supabase } from '../lib/supabase'
 
 function Dashboard() {
   const [events, setEvents] = useState<AIOXEvent[]>([])

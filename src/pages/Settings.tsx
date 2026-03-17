@@ -40,7 +40,6 @@ function Settings() {
 
   const handleChangePassword = async (e: React.FormEvent) => {
     e.preventDefault()
-    const currentPassword = (e.target as any).currentPassword?.value
     const newPassword = (e.target as any).newPassword?.value
 
     try {
