@@ -5,10 +5,10 @@
   "framework": "vite",
   "outputDirectory": "dist",
   "env": {
-    "VITE_SUPABASE_URL": "@supabase_url",
-    "VITE_SUPABASE_ANON_KEY": "@supabase_anon_key",
-    "VITE_AIOX_ENGINE_URL": "@aiox_engine_url",
-    "VITE_AIOX_PROJECT_ROOT": "@aiox_project_root"
+    "VITE_SUPABASE_URL": "@VITE_SUPABASE_URL",
+    "VITE_SUPABASE_ANON_KEY": "@VITE_SUPABASE_ANON_KEY",
+    "VITE_AIOX_ENGINE_URL": "@VITE_AIOX_ENGINE_URL",
+    "VITE_AIOX_PROJECT_ROOT": "@VITE_AIOX_PROJECT_ROOT"
   },
   "rewrites": [
     {
