@@ -1,0 +1,8 @@
+{
+  "env": [
+    "VITE_SUPABASE_URL",
+    "VITE_SUPABASE_ANON_KEY",
+    "VITE_AIOX_ENGINE_URL",
+    "VITE_AIOX_PROJECT_ROOT"
+  ]
+}
