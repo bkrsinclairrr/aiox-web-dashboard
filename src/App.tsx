@@ -1,7 +1,5 @@
-import { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { Session } from '@supabase/supabase-js'
-import { supabase } from './lib/supabase'
+import { AuthProvider, useAuth } from './context/AuthContext'
 import Navigation from './components/Navigation'
 import Dashboard from './pages/Dashboard'
 import Agents from './pages/Agents'
@@ -11,37 +9,23 @@ import Team from './pages/Team'
 import Login from './pages/Login'
 import Register from './pages/Register'
 
-function App() {
-  const [session, setSession] = useState<Session | null>(null)
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    // Check for existing session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session)
-      setLoading(false)
-    })
-
-    // Listen for auth changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
-    })
-
-    return () => subscription?.unsubscribe()
-  }, [])
+function AppRoutes() {
+  const { isAuthenticated, loading } = useAuth()
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen bg-slate-900 flex items-center justify-center">
         <div className="text-center">
-          <div className="text-3xl font-bold text-white mb-4">⚡ AIOX</div>
-          <p className="text-gray-400">Carregando...</p>
+          <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-600 rounded-xl mx-auto mb-4 flex items-center justify-center">
+            <span className="text-white text-3xl font-bold">⚡</span>
+          </div>
+          <p className="text-gray-400 text-lg">Carregando AIOX...</p>
         </div>
       </div>
     )
   }
 
-  if (!session) {
+  if (!isAuthenticated) {
     return (
       <BrowserRouter>
         <Routes>
@@ -55,7 +39,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-slate-900 text-white">
         <Navigation />
         <main className="container mx-auto px-4 py-8">
           <Routes>
@@ -69,6 +53,14 @@ function App() {
         </main>
       </div>
     </BrowserRouter>
+  )
+}
+
+function App() {
+  return (
+    <AuthProvider>
+      <AppRoutes />
+    </AuthProvider>
   )
 }
 
