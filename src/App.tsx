@@ -6,6 +6,11 @@ import Agents from './pages/Agents'
 import History from './pages/History'
 import Settings from './pages/Settings'
 import Team from './pages/Team'
+import Orchestrator from './pages/Orchestrator'
+import Monitor from './pages/Monitor'
+import Chat from './pages/Chat'
+import Memory from './pages/Memory'
+import CronPage from './pages/Cron'
 import Login from './pages/Login'
 import Register from './pages/Register'
 
@@ -48,6 +53,11 @@ function AppRoutes() {
             <Route path="/history" element={<History />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/team" element={<Team />} />
+            <Route path="/orchestrator" element={<Orchestrator />} />
+            <Route path="/monitor" element={<Monitor />} />
+            <Route path="/chat" element={<Chat />} />
+            <Route path="/memory" element={<Memory />} />
+            <Route path="/cron" element={<CronPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>

@@ -35,12 +35,14 @@ CREATE TRIGGER team_members_updated_at
 ALTER TABLE public.team_members ENABLE ROW LEVEL SECURITY;
 
 -- Policy: authenticated users can view all members
+DROP POLICY IF EXISTS "Authenticated users can view team members" ON public.team_members;
 CREATE POLICY "Authenticated users can view team members"
   ON public.team_members FOR SELECT
   TO authenticated
   USING (true);
 
 -- Policy: only owners and admins can insert (invite) members
+DROP POLICY IF EXISTS "Owners and admins can invite members" ON public.team_members;
 CREATE POLICY "Owners and admins can invite members"
   ON public.team_members FOR INSERT
   TO authenticated
@@ -57,6 +59,7 @@ CREATE POLICY "Owners and admins can invite members"
   );
 
 -- Policy: only owners and admins can update member roles/status
+DROP POLICY IF EXISTS "Owners and admins can update members" ON public.team_members;
 CREATE POLICY "Owners and admins can update members"
   ON public.team_members FOR UPDATE
   TO authenticated
@@ -70,6 +73,7 @@ CREATE POLICY "Owners and admins can update members"
   );
 
 -- Policy: only owners can delete members
+DROP POLICY IF EXISTS "Owners can remove members" ON public.team_members;
 CREATE POLICY "Owners can remove members"
   ON public.team_members FOR DELETE
   TO authenticated
@@ -105,6 +109,6 @@ CREATE TRIGGER on_auth_user_created
 -- OPTIONAL: Seed the first owner (replace with your email)
 -- Run after creating your account in Supabase Auth
 -- =====================================================
--- INSERT INTO public.team_members (email, role, status, invited_by)
--- VALUES ('seu-email@gmail.com', 'owner', 'active', 'system')
--- ON CONFLICT (email) DO UPDATE SET role = 'owner', status = 'active';
+INSERT INTO public.team_members (email, role, status, invited_by)
+VALUES ('bakersinclairc@gmail.com', 'owner', 'active', 'system')
+ON CONFLICT (email) DO UPDATE SET role = 'owner', status = 'active';
